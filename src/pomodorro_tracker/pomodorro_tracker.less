@@ -1,0 +1,126 @@
+html, body, main {
+  height: 100%;
+  overflow: hidden;
+  background-color: #333333;
+  font-family: 'sans-serif';
+  // -webkit-app-region:drag;
+}
+
+h1 {
+  display: block;
+  background-color: #333333;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  font-size: 5em;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  padding: 20px;
+  font-size: 1.5em;
+
+  .session {
+    font-size: .8em;
+    display: flex;
+    .breakCtrl, .sessionCtrl {
+      display: inline;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .minus, .plus {
+      background-color: #333333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 2em;
+      outline: none;
+    //   -webkit-app-region:no-drag;
+    }
+
+    .time {
+      font-size: 2.5em;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+section {
+  background-color: #333333;
+  height: 100%;
+  color: #fff;
+  .title {
+    text-align: center;
+    line-height:50px;
+    font-size: .8em;
+  }
+  .timer {
+    // -webkit-app-region:no-drag;
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    font-size: 3em;
+    border: 2px solid #99CC00;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+    overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 50%;
+      z-index: 2;
+      border: 4px solid #333333;
+    }
+  }
+  .fill {
+    content: '';
+    position: absolute;
+    background: #99CC00;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+#title-bar {
+  -webkit-app-region: drag;
+  height: 24px;
+  // background-color: darkviolet;
+  padding: none;
+  margin: 0px;
+}
+
+#title {
+ position: fixed;
+ top: 0px;
+ left: 6px;
+ color: #fff;
+ font-size: 1.5em;
+}
+
+#title-bar-btns {
+ -webkit-app-region: no-drag;
+ position: fixed;
+ top: 0px;
+ right: 6px;
+}
+
+#close-btn {
+  border: none;
+  background-color: #333333;
+  color: #fff;
+  font-size: 1.5em;
+}
