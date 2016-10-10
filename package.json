@@ -2,9 +2,8 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "build": "gulp build",
-    "prerelease": "gulp build --env=production",
-    "release": "build --x64 --publish never",
-    "start": "gulp start"
+    "start": "gulp start --env=production",
+    "dev": "gulp start"
   },
   "devDependencies": {
     "electron": "1.3.3",
