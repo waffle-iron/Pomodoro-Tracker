@@ -1,5 +1,5 @@
 # Pomodorro-Tracker
-A Pomodorro Tracker application written in Angular JS
+A Pomodorro Tracker application written in Angular JS. Uses the electron framework to allow it to run as a standalone application.
 
 ### Usage:
 `git clone https://github.com/David29595/Pomodorro-Tracker.git`
