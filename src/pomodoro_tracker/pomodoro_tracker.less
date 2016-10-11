@@ -3,7 +3,6 @@ html, body, main {
   overflow: hidden;
   background-color: #333333;
   font-family: 'sans-serif';
-  // -webkit-app-region:drag;
 }
 
 h1 {
@@ -39,7 +38,6 @@ header {
       cursor: pointer;
       font-size: 2em;
       outline: none;
-    //   -webkit-app-region:no-drag;
     }
 
     .time {
@@ -56,17 +54,17 @@ section {
   color: #fff;
   .title {
     text-align: center;
-    line-height:50px;
+    line-height:40px;
     font-size: .8em;
+    padding-top: 25px;
   }
   .timer {
-    // -webkit-app-region:no-drag;
     margin: 0 auto;
     text-align: center;
     width: 250px;
     height: 250px;
     font-size: 3em;
-    border: 2px solid #99CC00;
+    border: 2px solid #50db3b;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
@@ -87,7 +85,7 @@ section {
   .fill {
     content: '';
     position: absolute;
-    background: #99CC00;
+    background: #50db3b;
     bottom: 0;
     right: 0;
     left: 0;
@@ -98,7 +96,6 @@ section {
 #title-bar {
   -webkit-app-region: drag;
   height: 24px;
-  // background-color: darkviolet;
   padding: none;
   margin: 0px;
 }
@@ -119,6 +116,7 @@ section {
 }
 
 #close-btn {
+    cursor: pointer;
   border: none;
   background-color: #333333;
   color: #fff;

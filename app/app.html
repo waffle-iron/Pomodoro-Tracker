@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Pomodorro Tracker</title>
-    <link rel="stylesheet" href="stylesheets/pomodorro_tracker/pomodorro_tracker.css">
+    <link rel="stylesheet" href="stylesheets/pomodoro_tracker/pomodoro_tracker.css">
   </head>
 
   <body ng-app="PomodoroApp" ng-controller="MainCtrl">
@@ -18,19 +18,19 @@
         <div class="session">
           <div class="breakCtrl">
             <p>Break Length</p>
-            <button ng-click="breakLengthChange(-1)" class="minus">-</button><span class="time">{{breakLength}}</span>
-            <button ng-click="breakLengthChange(1)" class="plus">+</button>
+            <button ng-click="changeTime(-1, 'break')" class="minus">-</button><span class="time">{{breakLength}}</span>
+            <button ng-click="changeTime(1, 'break')" class="plus">+</button>
           </div>
           <div class="sessionCtrl">
             <p>Session Length</p>
-            <button ng-click="sessionLengthChange(-1)" class="minus">-</button><span class="time">{{sessionLength}}</span>
-            <button ng-click="sessionLengthChange(1)" class="plus">+</button>
+            <button ng-click="changeTime(-1)" class="minus">-</button><span class="time">{{sessionLength}}</span>
+            <button ng-click="changeTime(1)" class="plus">+</button>
           </div>
         </div>
       </header>
 
       <section ng-click="toggleTimer()">
-        <div class="timer">
+        <div class="timer" ng-style="{'border-color' : fillColor}">
           <p class="title">{{sessionName}}</p>
           <p>{{timeLeft}}</p><span ng-style="{'height':fillHeight, 'background':fillColor }" class="fill"></span>
         </div>

@@ -4,7 +4,7 @@
   "description": "Pomodorro timer application",
   "version": "0.0.0",
   "author": "David Daly",
-  "main": "background.js",
+  "main": "window.js",
   "dependencies": {
     "fs-jetpack": "^0.9.0"
   }
