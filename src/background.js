@@ -16,7 +16,7 @@ var init = function () {
     Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
 
     width = env.name === 'development' ? 1000 : 450;
-    height = env.name === 'development' ? 800 : 500;
+    height = env.name === 'development' ? 800 : 475;
 
     mainWindow = new BrowserWindow({width: width, height: height, frame: false, resizable: true});
 }

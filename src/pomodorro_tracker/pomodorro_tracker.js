@@ -53,7 +53,7 @@ app.controller('MainCtrl', function($scope, $interval) {
 
   $scope.toggleTimer = function() {
     if (!runTimer) {
-      if ($scope.currentName === 'Sesson') {
+      if ($scope.currentName === 'Session') {
         $scope.currentLength = $scope.sessionLength;
       } else {
         $scope.currentLength = $scope.breakLength;
@@ -73,11 +73,13 @@ app.controller('MainCtrl', function($scope, $interval) {
       // countdown is finished
 
       // Play audio
+      //TODO: Fix
       var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
       var audio = new Audio(wav);
 			audio.play();
 
       // toggle break and session
+      //TODO: simplify this section
       $scope.fillColor = '#333333';
       if ($scope.sessionName === 'Break!') {
         $scope.sessionName = 'Session';
