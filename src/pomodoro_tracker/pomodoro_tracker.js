@@ -5,7 +5,8 @@ app.controller('MainCtrl', function($scope, $interval) {
   $scope.timeLeft = $scope.sessionLength;
   $scope.fillHeight = '0%';
   $scope.currentPomodoro = 1;
-  $scope.sessionName = 'Pomodoro 1';
+  $scope.showSkipButton = false;
+  $scope.sessionType = 'pomodoro'
 
   var running = false;
   var secs = 60 * $scope.timeLeft;
@@ -38,7 +39,6 @@ app.controller('MainCtrl', function($scope, $interval) {
   $scope.toggleTimer = function() {
     if (!running) {
       $scope.currentLength = $scope.sessionLength;
-      console.log($scope.currentLength);
       updateTimer();
       running = $interval(updateTimer, 1000);
     } else {
@@ -47,26 +47,32 @@ app.controller('MainCtrl', function($scope, $interval) {
     }
   }
 
+  $scope.cancelBreak = function() {
+      secs = 0;
+  }
+
   function updateTimer() {
     secs -= 1;
     if (secs < 0) {
       // Play audio
       var wav = 'https://notificationsounds.com/soundfiles/6ea2ef7311b482724a9b7b0bc0dd85c6/file-sounds-935-attention-seeker.wav';
       var audio = new Audio(wav);
-			audio.play();
-       $scope.fillHeight = 0 + '%';
+	  audio.play();
+      $scope.fillHeight = 0 + '%';
 
       // toggle break and pomodoro session
-      if ($scope.sessionName === 'Break!') {
+      if ($scope.sessionType === 'break') {
         $scope.currentPomodoro += 1;
         $scope.fillColor = '#50db3b'
-        $scope.sessionName = 'Pomodoro' + ' ' + $scope.currentPomodoro;
+        $scope.sessionType = 'pomodoro'
+        $scope.showSkipButton = false;
         updateTimes($scope.sessionLength);
 
       }
       else {
         $scope.fillColor = '#FF4444';
-        $scope.sessionName = 'Break!';
+        $scope.sessionType = 'break'
+        $scope.showSkipButton = true;
         updateTimes($scope.breakLength);
       }
     }
@@ -75,8 +81,6 @@ app.controller('MainCtrl', function($scope, $interval) {
       var denom = 60 * $scope.currentLength;
       var perc = Math.abs((secs / denom) * 100 - 100);
       $scope.fillHeight = perc + '%';
-
-      console.log(perc + " " + $scope.fillHeight);
     }
   }
 

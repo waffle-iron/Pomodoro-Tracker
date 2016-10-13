@@ -7,9 +7,13 @@ import { app } from './pomodoro_tracker/pomodoro_tracker.js'; // pomodorro_track
 
 var app = remote.app;
 
+//TODO: Find a better place to put this code
 function init() {
   document.getElementById("close-btn").addEventListener("click", function (e) {
        app.quit();
+  });
+  document.getElementById("min-btn").addEventListener("click", function (e) {
+       remote.BrowserWindow.getFocusedWindow().minimize();
   });
  };
 

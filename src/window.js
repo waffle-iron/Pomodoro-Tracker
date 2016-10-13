@@ -15,10 +15,10 @@ var init = function () {
     }
     Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
 
-    width = env.name === 'development' ? 1000 : 450;
-    height = env.name === 'development' ? 800 : 475;
+    width = env.name === 'development' ? 1200 : 450;
+    height = env.name === 'development' ? 1000 : 475;
 
-    mainWindow = new BrowserWindow({width: width, height: height, frame: false, resizable: true});
+    mainWindow = new BrowserWindow({width: 400, height: 500, frame: false, resizable: false});
 }
 
 app.on('ready', function () {
