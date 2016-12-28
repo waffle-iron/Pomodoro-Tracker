@@ -1,39 +1,39 @@
 'use strict';
 
-var gulp = require('gulp');
-var less = require('gulp-less');
-var watch = require('gulp-watch');
-var batch = require('gulp-batch');
-var plumber = require('gulp-plumber');
-var jetpack = require('fs-jetpack');
-var bundle = require('./bundle');
-var utils = require('./utils');
+let gulp = require('gulp');
+let less = require('gulp-less');
+let watch = require('gulp-watch');
+let batch = require('gulp-batch');
+let plumber = require('gulp-plumber');
+let jetpack = require('fs-jetpack');
+let bundle = require('./bundle');
+let utils = require('./utils');
 
-var projectDir = jetpack;
-var srcDir = jetpack.cwd('./src');
-var destDir = jetpack.cwd('./app');
+let projectDir = jetpack;
+let srcDir = jetpack.cwd('./src');
+let destDir = jetpack.cwd('./app');
 
 gulp.task('bundle', function () {
     return Promise.all([
-        bundle(srcDir.path('window.js'), destDir.path('window.js')),
+        bundle(srcDir.path('background.js'), destDir.path('background.js')),
         bundle(srcDir.path('app.js'), destDir.path('app.js')),
     ]);
 });
 
 gulp.task('less', function () {
-    return gulp.src('src/**/*.less')
+    return gulp.src(srcDir.path('stylesheets/main.less'))
         .pipe(plumber())
         .pipe(less())
         .pipe(gulp.dest(destDir.path('stylesheets')));
 });
 
 gulp.task('environment', function () {
-    var configFile = 'config/env_' + utils.getEnvName() + '.json';
+    let configFile = 'config/env_' + utils.getEnvName() + '.json';
     projectDir.copy(configFile, destDir.path('env.json'), { overwrite: true });
 });
 
 gulp.task('watch', function () {
-    var beepOnError = function (done) {
+    let beepOnError = function (done) {
         return function (err) {
             if (err) {
                 utils.beepSound();

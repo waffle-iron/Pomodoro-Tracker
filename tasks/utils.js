@@ -1,14 +1,9 @@
 'use strict';
 
-var argv = require('yargs').argv;
-var os = require('os');
+let argv = require('minimist')(process.argv);
 
 exports.getEnvName = function () {
     return argv.env || 'development';
-};
-
-exports.getPlatformName = function () {
-    return "\"" + os.platform() + "\"";
 };
 
 exports.beepSound = function () {
