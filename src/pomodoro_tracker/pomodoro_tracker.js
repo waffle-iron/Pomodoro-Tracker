@@ -1,4 +1,4 @@
-var app = angular.module('PomodoroApp', []);
+let app = angular.module('PomodoroApp', []);
 app.controller('MainCtrl', function($scope, $interval) {
   $scope.breakLength = 5;
   $scope.sessionLength = 25;
@@ -8,14 +8,14 @@ app.controller('MainCtrl', function($scope, $interval) {
   $scope.showSkipButton = false;
   $scope.sessionType = 'pomodoro'
 
-  var running = false;
-  var secs = 60 * $scope.timeLeft;
+  let running = false;
+  let secs = 60 * $scope.timeLeft;
 
   function secondsToHms(d) {
     d = Number(d);
-    var h = Math.floor(d / 3600);
-    var m = Math.floor(d % 3600 / 60);
-    var s = Math.floor(d % 3600 % 60);
+    let h = Math.floor(d / 3600);
+    let m = Math.floor(d % 3600 / 60);
+    let s = Math.floor(d % 3600 % 60);
 
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
   }
@@ -55,8 +55,8 @@ app.controller('MainCtrl', function($scope, $interval) {
     secs -= 1;
     if (secs < 0) {
       // Play audio
-      var wav = 'https://notificationsounds.com/soundfiles/6ea2ef7311b482724a9b7b0bc0dd85c6/file-sounds-935-attention-seeker.wav';
-      var audio = new Audio(wav);
+      let wav = 'https://notificationsounds.com/soundfiles/6ea2ef7311b482724a9b7b0bc0dd85c6/file-sounds-935-attention-seeker.wav';
+      let audio = new Audio(wav);
 	  audio.play();
       $scope.fillHeight = 0 + '%';
 
@@ -78,8 +78,8 @@ app.controller('MainCtrl', function($scope, $interval) {
     }
     else {
       $scope.timeLeft = secondsToHms(secs);
-      var denom = 60 * $scope.currentLength;
-      var perc = Math.abs((secs / denom) * 100 - 100);
+      let denom = 60 * $scope.currentLength;
+      let perc = Math.abs((secs / denom) * 100 - 100);
       $scope.fillHeight = perc + '%';
     }
   }
@@ -91,4 +91,4 @@ app.controller('MainCtrl', function($scope, $interval) {
   }
 });
 
-export default app;
+export { app };
