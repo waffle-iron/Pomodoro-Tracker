@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/David29595/Pomodoro-Tracker.png?label=ready&title=Ready)](https://waffle.io/David29595/Pomodoro-Tracker)
 # Pomodoro-Tracker
 A [Pomodoro] (https://en.wikipedia.org/wiki/Pomodoro_Technique) Tracker application written in Angular JS. Uses the electron framework to allow it to run as a standalone application.
 
